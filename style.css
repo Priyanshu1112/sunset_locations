@@ -1,0 +1,471 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.containter{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    /* background: #000; */
+    animation: bgColor 60s linear infinite;
+    /* background: linear-gradient(#9D5D5D, #CA6D52, #E8985C) ; */
+    overflow: hidden;
+}
+
+@keyframes bgColor {
+    0%{
+        background: linear-gradient(#9D5D5D, #CA6D52, #E8985C) 
+    }
+    25%{
+        background: linear-gradient(#C2C8C8, #C2C8C8, #CDC7C1, #E6BFA2);
+    }
+    50%{
+        background: linear-gradient(#957882, #957882, #957882, #E09D7E);
+    }
+    75%,90%{
+        background: #000;
+    }
+
+    100%{
+        background: linear-gradient(#9D5D5D, #CA6D52, #E8985C)
+    }
+}
+
+.img{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://cdn.pixabay.com/photo/2016/07/07/10/03/silhouette-1502187_960_720.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center;
+}
+
+.sun{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    background: #C41303;
+    z-index: -1;
+    animation: sunColor 60s linear infinite;
+}
+
+@keyframes sunColor {
+    0%{
+        top: 0;
+        width: 30vh;
+        height: 30vh;
+        background: #ffb46e;
+        filter: blur(100px);
+        box-shadow: 0 0 20px #f89177;
+    }
+    25%{
+        width: 15vh;
+        height: 15vh;
+        background: #ffff00;
+        filter: blur(0);
+    }
+    50%{
+        top: 0;
+    }
+
+    75%{
+        top: 80vh;   
+        filter: blur(0);     
+        background: #C41303;
+    }
+    100%{
+        top: 0;
+        filter: blur(50px);
+    }
+}
+
+.content{
+    height: 100%;
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+    height: 10vh;
+    background-color: rgba(79,101,170,.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 0 5%;
+    animation: text-stroke 60s linear infinite;
+}
+
+@keyframes text-stroke {
+    0%,50%,100%{
+        color: white;
+    }
+    75%,90%{
+        color: #C41303;
+    }
+
+}
+
+h1 {
+    font-family: 'Birthstone', cursive;
+    font-size: 5vmax;
+    transition: all .3s;
+
+   
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    font-family: 'montserrat';
+
+}
+
+nav ul li {
+    padding: 0 1.5vmax;
+    font-size: 1.3vmax;
+    transition: all .3s;
+}
+
+nav ul li:hover, nav button:hover, nav>h1:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+nav>button{
+    font-family: 'montserrat';
+    display: flex;
+    background: rgba(0, 0, 0, .5);
+    padding: 1vmax 2.5vmax;
+    border: none;
+    border-radius: 2vmax;
+    font-size: 1.8vmin;
+    gap: 1vmax;
+    animation: text-stroke 60s linear infinite;  
+    transition: all .3s;
+
+}
+
+.menu {
+    display: none;
+    font-size: 3vmax;
+}
+
+.s1{
+    /* margin-top: 10vh; */
+    /* position: relative; */
+    height: 90vh;
+    /* background-color: #fff; */
+    width: 100%;
+    padding: 5vh 3vw 3vh 3vw;
+    /* overflow-y: scroll; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.s1>h1{
+    /* flex: 1; */
+    color: white;
+    font: 900 4.5vh 'serif';
+    animation: text-stroke 60s linear infinite;  
+    text-align: center;    
+}
+
+.list{
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    justify-content: space-between;
+    /* border: 1px solid white; */
+}
+
+.mobile{
+    display: none;
+}
+
+.list:hover ul{
+    padding: 5vh 0;
+    font: 1vw 'Gilroy';
+}
+
+.list:hover{
+    cursor: pointer;
+}
+
+.list:hover .desc{
+    flex: 2;
+    transform: scaleY(1.4);
+    /* background-color: #fff; */
+
+}
+
+.list>ul{
+    display: flex;
+    flex: 1;
+    width: fit-content;
+    flex-direction: column;
+    list-style: none;
+    animation: text-stroke 60s linear infinite;
+    justify-content: space-evenly;
+    font: 400 1.5vw 'Gilroy';
+    transition: 0.3s all;
+}
+
+.list>ul li{
+    transition: 0.25s all;
+    position: relative;
+    padding: 1vmin;
+}
+
+.list>ul li:hover{
+    font-size: 1.3vw;
+}
+
+.list>ul li::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+    transition: 0.3s all;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.list>ul li:hover::before{
+    /* left: 0; */
+    width: 100%;
+    /* height: 100%; */
+}
+
+
+.list>.right li::before{
+    background-color: transparent;
+}
+
+.list>.right li::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, .5);
+    transition: .3s all;
+
+}
+
+.list>.right li:hover::after{
+    width: 100%;
+}
+
+
+/* .list>ul li:hover  .desc{
+    transform: scaleX(1.1);
+    /* background: #fff; */
+/* }  */
+
+.list>.right{
+    text-align: end;
+}
+
+.list ul li img, #mobBox #title img{
+    width: 2vmax;
+    margin: 0 1vh ;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.desc{
+    /* display: none; */
+    flex: 2;
+    /* transform: scaleY(1.4); */
+    /* border: 1px solid pink; */
+   transition: .5s all;
+}
+
+#box, #mobBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden; 
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(5px);
+    border-radius: .5vh;
+    padding: 1vmin 1.5vmin 1.5vmin 1.5vmin; 
+    
+    transform: scale(0);
+}
+
+#box>h2, #mobBox>h2{
+    text-align: center;
+    font: 600 1.8vw 'Gilroy';
+    margin-bottom: 1vmin;
+    animation: text-stroke 60s linear infinite;
+}
+
+#overlay{
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: 1vmin; */
+    animation:  overlay 60s linear infinite;
+}
+
+@keyframes overlay {
+    0%{
+        opacity: 0.5;
+        background: linear-gradient( rgba(157, 93, 93, .5), rgba(202, 109, 82, .5)
+        , rgba(232, 152, 92, .5)) 
+    }
+    25%{
+        opacity: 0.3;
+
+        background: linear-gradient(#C2C8C8, #C2C8C8, #CDC7C1, #E6BFA2);
+    }
+    50%{
+        opacity: 0.3;
+
+        background: linear-gradient(#957882, #957882, #957882, #E09D7E);
+    }
+    75%,90%{
+        opacity: 0.3;
+
+        background: #000;
+    }
+
+    100%{
+        opacity: 0.3;
+
+        background: linear-gradient(#9D5D5D, #CA6D52, #E8985C)
+    }
+}
+
+
+#box #img, #mobBox #img{
+    width: 80%;
+    height: 25vh;
+    /* background-image: url(https://all.accor.com/magazine/imagerie/greece-51e5.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 1vmin;
+    border-radius: .5vh;
+}
+
+#box>p, #mobBox>p{
+    overflow-y: auto;
+    text-align: center;
+    font: 400 1.1vw 'Gilroy';
+    letter-spacing: .1vh;
+    animation: text-stroke 60s linear infinite;
+}
+
+#box>p::-webkit-scrollbar{
+    width: 0;
+}
+
+
+
+@media (max-width: 1280px) {
+    .background>.img{
+        background-position: bottom;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 5vmax;
+    }
+
+    .menu {
+        display: initial;
+    }
+
+    nav>ul {
+        display: none;
+    }
+
+    nav>button{
+        display: none;
+    }
+
+    .s1{
+        width: 100%;
+        height: 90vh;
+        margin: 0 auto;
+        display: flex;
+        padding: 4vh 2vmax 4vmax 3vh;
+    }
+    
+    .s1>h1{
+        flex: 1;
+        font-size: 4vh;
+    }
+
+    .list{
+        display: none;
+    }
+
+    .mobile{
+        width: 100%;
+        flex: 6;
+        /* background-color: #000; */
+        display: inline-block;
+        overflow-y: auto;
+    }
+    
+    #mobBox{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5vmax;
+        transform: scale(1);
+    }
+
+    #mobBox #img{
+        width: 100%;
+    }
+
+    #mobBox #title img{
+        width: 4vh;
+        margin: 0 1vh ;
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, .5); */
+    }
+
+    #mobBox>h2{
+        font-size: 4vh;
+    }
+
+    #mobBox>p{
+        font-size: 2vh;
+    }
+}
